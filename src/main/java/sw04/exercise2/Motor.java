@@ -49,7 +49,7 @@ public class Motor implements Switchable, Runnable {
     
     @Override
     public boolean isSwitchedOff() {
-        return !isSwitchedOn();
+        return !isSwitchedOn() && this.rpm == 0;
     }
     
     
