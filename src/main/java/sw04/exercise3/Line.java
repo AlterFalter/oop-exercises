@@ -23,7 +23,7 @@ public class Line {
     }
     
     public Point getStartPoint() {
-        // watch out, this makes it possible to change the point from this class
+        // watch out: this makes it possible to change the point from this class
         // it is possible to add a clone() method which executes the constructor
         // again, and gives the fields as parameter (notice "clone" not "deepClone"
         return this.startPoint;
@@ -34,11 +34,15 @@ public class Line {
     }
     
     public void setStartPoint(int newX, int newY) {
-        this.setStartPoint(new Point(newX, newY));
+        this.startPoint.setX(newX);
+        this.startPoint.setY(newY);
     }
     
     public void setStartPoint(Point newStartPoint) {
-        this.startPoint = newStartPoint;
+        // call by value
+        this.setStartPoint(newStartPoint.getX(), newStartPoint.getY());
+        // call by reference
+        //this.startPoint = newStartPoint;
     }
     
     public void setEndPoint(int newX, int newY) {
@@ -46,6 +50,7 @@ public class Line {
     }
     
     public void setEndPoint(Point newEndPoint) {
+        // call by reference
         this.startPoint = newEndPoint;
     }
 }
