@@ -20,9 +20,10 @@ public class Motor implements Switchable, Runnable {
     private Thread thread;
     private String threadName;
     
-    public boolean switchState;
+    private boolean switchState;
     public int rpm;
     
+    // Alternative: Parameter mit Thread Name
     public Motor() {
         this.switchState = false;
         this.threadName = UUID.randomUUID().toString();
@@ -52,7 +53,8 @@ public class Motor implements Switchable, Runnable {
         return !isSwitchedOn() && this.rpm == 0;
     }
     
-    
+    // override nicht vergessen
+    @Override
     public void run() {
         while (this.accelerate()) {
         }
@@ -94,11 +96,14 @@ public class Motor implements Switchable, Runnable {
         }
     }
     
+    // ganze Methode synchronized: public synchronized boolean 
+    // object attribute zum abfragen
     public boolean getSwitchState() {
         synchronized (this) {
             return this.switchState;
         }
     }
+    
     
     public void setSwitchState(boolean newSwitchState) {
         synchronized (this) {
