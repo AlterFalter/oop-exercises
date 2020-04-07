@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright 2020 Roland Gisler, HSLU Informatik, Switzerland
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<document xmlns="http://maven.apache.org/changes/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <properties>
+        <title>Changes</title>
+        <author email="roland.gisler@hslu.ch">Roland Gisler</author>
+    </properties>
+    <body>
+        <release version="2.3.0" date="2020-01-26" description="Release für OOP/AD/PLAB im 20FS.">
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+        </release>
+        <release version="2.2.0" date="2019-09-08" description="Release für OOP/PLAB im 19HS.">
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+            <action dev="zbgisler" type="add">
+                Site Skin update.
+            </action>
+            <action dev="zbgisler" type="fix">
+                Checkstyle Config korrigiert.
+            </action>
+        </release>
+        <release version="2.1.1" date="2019-02-08" description="Bugfix Release für OOP/PLAB im 19FS.">
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+        </release>
+        <release version="2.1.0" date="2019-01-14" description="Release für OOP/PLAB im 19FS.">
+            <action dev="zbgisler" type="add">
+                Migration auf Java 11.
+            </action>
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+            <action dev="zbgisler" type="add">
+                JIB-Plugin ergänzt.
+            </action>
+            <action dev="zbgisler" type="add">
+                AsciiDoc-Plugin ergänzt.
+            </action>
+        </release>
+        <release version="2.0.0" date="2018-09-15" description="Release für OOP/PLAB im 18HS.">
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+            <action dev="zbgisler" type="add">
+                Migration auf SpotBugs (Ersatz für Findbugs).
+            </action>
+            <action dev="zbgisler" type="add">
+                Migration auf JUnit 5 (Jupiter) und JUnit Pioneer.
+            </action>
+            <action dev="zbgisler" type="add">
+                Migration auf Java 10.
+            </action>
+            <action dev="zbgisler" type="remove">
+                MutabilityDetector entfernt (nicht Java 10 kompatibel).
+            </action>
+        </release>
+        <release version="1.5.0" date="2018-02-07" description="Release für OOP und AD 18FS.">
+            <action dev="zbgisler" type="add">
+                Dependencies und Plugins aktualisiert.
+            </action>
+            <action dev="zbgisler" type="add">
+                Checkstyle und PMD migriert (Konfig von PMD verändert).
+            </action>
+            <action dev="zbgisler" type="add">
+                Neue Version 1.7 von Fluido-Skin.
+            </action>
+        </release>
+        <release version="1.4.1" date="2017-10-10" description="Bugfix-Release für OOP 17HS.">
+            <action dev="zbgisler" type="fix">
+                Dependencies und Plugins aktualisiert.
+            </action>
+            <action dev="zbgisler" type="fix">
+                Xlint-Optionen verbessert (Annotation-Warnings unterdrücken).
+            </action>
+        </release>
+        <release version="1.4.0" date="2017-09-10" description="Release für OOP und AD 17HS.">
+            <action dev="zbgisler" type="add">
+                Dependencies aktualisiert und erweitert.
+            </action>
+        </release>
+        <release version="1.3.0" date="2017-01-27" description="Release für OOP und AD 17FS.">
+            <action dev="zbgisler" type="add">
+                Dependencies aktualisiert und erweitert.
+            </action>
+        </release>
+        <release version="1.2.0" date="2016-11-23" description="Release für interne Schulung.">
+            <action dev="zbgisler" type="fix">
+                Dependencies aktualisiert und erweitert für interne Schulung.
+            </action>
+        </release>
+        <release version="1.1.0" date="2016-10-12" description="Release für OOP 16HS.">
+            <action dev="zbgisler" type="add">
+                Dependencies aktualisiert und erweitert.
+            </action>
+        </release>
+        <release version="1.0.0" date="2016-10-06" description="Initialer Release.">
+            <action dev="zbgisler" type="add">
+                Erster Release.
+            </action>
+        </release>
+    </body>
+</document>
