@@ -22,5 +22,4 @@ public class DemoMotor {
         System.out.println("stopping now");
         motor.switchOff();
     }
-    
 }
