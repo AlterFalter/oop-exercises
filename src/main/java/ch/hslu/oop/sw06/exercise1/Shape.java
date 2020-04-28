@@ -24,11 +24,11 @@ public abstract class Shape {
         this.y = newY;
     }
     
-    public int getX() {
+    public final int getX() {
         return this.x;
     }
     
-    public int getY() {
+    public final int getY() {
         return this.y;
     }
     

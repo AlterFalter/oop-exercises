@@ -9,7 +9,7 @@ package ch.hslu.oop.sw06.exercise1;
  *
  * @author yannk
  */
-public class Circle extends Shape {
+public final class Circle extends Shape {
     private int diameter;
     
     public Circle(int x, int y, int diameter) {
@@ -17,7 +17,7 @@ public class Circle extends Shape {
         this.setDiameter(diameter);
     }
     
-    public final void setDiameter(int newDiameter) {
+    public void setDiameter(int newDiameter) {
         this.diameter = newDiameter;
     }
     

@@ -9,7 +9,7 @@ package ch.hslu.oop.sw06.exercise1;
  *
  * @author yannk
  */
-public class Rectangle extends Shape {
+public final class Rectangle extends Shape {
     private int width;
     private int height;
     
@@ -18,7 +18,7 @@ public class Rectangle extends Shape {
         this.changeDimension(width, height);
     }
     
-    public final void changeDimension(int newWidth, int newHeight) {
+    public void changeDimension(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;
     }
