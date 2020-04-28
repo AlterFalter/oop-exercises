@@ -14,6 +14,10 @@ public class DemoPerson {
         // doesn't work, incompatible types but reversed is possible
         //Student student = new Person();
         Person person = new Student();
+        
+        String something = "stuff " + person;
+        System.out.println(something);
+        System.out.println("stuff" + person.toString());
     }
     
 }
