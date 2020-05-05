@@ -22,6 +22,11 @@ public class TemperatureCalculatorTest {
     private static final float ACCEPTABLE_DELTA = 0.01f;
     
     @Test
+    public void testCelsiusToKelvinWithMinimum() {
+        assertEquals(TemperatureCalculator.KELVIN_MINIMUM, TemperatureCalculator.celsiusToKelvin(TemperatureCalculator.CELSIUS_MINIMUM), ACCEPTABLE_DELTA);
+    }
+    
+    @Test
     public void testCelsiusToKelvinWithNegativeNumber() {
         assertEquals(123f, TemperatureCalculator.celsiusToKelvin(-150.15f), ACCEPTABLE_DELTA);
         assertThat(TemperatureCalculator.celsiusToKelvin(-150.15f))
@@ -47,8 +52,8 @@ public class TemperatureCalculatorTest {
     }
     
     @Test
-    public void testKelvinToCelsiusWithZero() {
-        assertEquals(TemperatureCalculator.CELSIUS_MINIMUM, TemperatureCalculator.kelvinToCelsius(0f), ACCEPTABLE_DELTA);
+    public void testKelvinToCelsiusWithMinimum() {
+        assertEquals(TemperatureCalculator.CELSIUS_MINIMUM, TemperatureCalculator.kelvinToCelsius(TemperatureCalculator.KELVIN_MINIMUM), ACCEPTABLE_DELTA);
     }
     
     @Test
@@ -62,6 +67,11 @@ public class TemperatureCalculatorTest {
             TemperatureCalculator.kelvinToCelsius(-1f);
         });
         assertEquals("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM, ex.getMessage());
+    }
+    
+    @Test
+    public void testCelsiusToFahrenheitWithMinimum() {
+        assertEquals(TemperatureCalculator.FAHRENHEIT_MINIMUM, TemperatureCalculator.celsiusToFahrenheit(TemperatureCalculator.CELSIUS_MINIMUM), ACCEPTABLE_DELTA);
     }
     
     @Test
@@ -88,6 +98,11 @@ public class TemperatureCalculatorTest {
     }
     
     @Test
+    public void testFahrenheitToCelsiusWithMinimum() {
+        assertEquals(TemperatureCalculator.CELSIUS_MINIMUM, TemperatureCalculator.fahrenheitToCelsius(TemperatureCalculator.FAHRENHEIT_MINIMUM), ACCEPTABLE_DELTA);
+    }
+    
+    @Test
     public void testFahrenheitToCelsiusWithNegativeNumber() {
         assertEquals(-65f, TemperatureCalculator.fahrenheitToCelsius(-85f), ACCEPTABLE_DELTA);
     }
@@ -111,8 +126,8 @@ public class TemperatureCalculatorTest {
     }
     
     @Test
-    public void testKelvinToFahrenheitWithZero() {
-        assertEquals(TemperatureCalculator.FAHRENHEIT_MINIMUM, TemperatureCalculator.kelvinToFahrenheit(0f), ACCEPTABLE_DELTA);
+    public void testKelvinToFahrenheitWithMinimum() {
+        assertEquals(TemperatureCalculator.FAHRENHEIT_MINIMUM, TemperatureCalculator.kelvinToFahrenheit(TemperatureCalculator.KELVIN_MINIMUM), ACCEPTABLE_DELTA);
     }
     
     @Test
@@ -126,6 +141,11 @@ public class TemperatureCalculatorTest {
             TemperatureCalculator.kelvinToFahrenheit(-0.005f);
         });
         assertEquals("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM, ex.getMessage());
+    }
+    
+    @Test
+    public void testFahrenheitToKelvinWithMinimum() {
+        assertEquals(TemperatureCalculator.KELVIN_MINIMUM, TemperatureCalculator.fahrenheitToKelvin(TemperatureCalculator.FAHRENHEIT_MINIMUM), ACCEPTABLE_DELTA);
     }
     
     @Test
