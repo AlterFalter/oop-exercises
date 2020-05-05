@@ -19,17 +19,17 @@ public abstract class Shape {
         this.move(x, y);
     }
     
-    public final void move(int newX, int newY) {
-        this.x = newX;
-        this.y = newY;
-    }
-    
     public final int getX() {
         return this.x;
     }
     
     public final int getY() {
         return this.y;
+    }
+    
+    public final void move(int newX, int newY) {
+        this.x = newX;
+        this.y = newY;
     }
     
     // abstrakte Methoden dokumentieren
