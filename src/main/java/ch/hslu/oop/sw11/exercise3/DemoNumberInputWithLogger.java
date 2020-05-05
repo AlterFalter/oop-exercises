@@ -5,6 +5,7 @@
  */
 package ch.hslu.oop.sw11.exercise3;
 
+import java.util.Optional;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,13 +20,16 @@ public class DemoNumberInputWithLogger {
     public static void main(String[] args) {
         logDifferentLevels();
         
-//        Float temperature2 = new Float(0);
-//        if (getInputFromUser(temperature2)) {
-//            LOG.info("input from user: " + temperature2);
-//        }
-//        else {
-//            LOG.info("no user input");
-//        }
+        Optional<Float> numberInput = getNumberFromUser();
+        if (numberInput.isPresent()) {
+            Float number = numberInput.get();
+            LOG.info("input from user: " + number);
+        }
+        else {
+            LOG.info("no user input");
+        }
+        
+        System.out.println("#########################################");
         
         LOG.info("Started temperature input sequence.");
         float temperature;
@@ -82,16 +86,19 @@ public class DemoNumberInputWithLogger {
     
     /**
      * Doesn't work in Java because also wrapper types, such as Float, are not mutable!
+     * --> nullable Float
+     * --> Optional<Float> --> java.util.Optional
      * Alternative: use events!
      * OR: write a class with a single float attribute and getter/setter functions
+     * 
+     * 
      * @param inputNumber
      * @return 
      */
-    public static boolean getInputFromUser(Float inputNumber) {
+    public static Optional<Float> getNumberFromUser() {
         LOG.info("Started temperature input sequence.");
         Scanner scanner = new Scanner(System.in);
         boolean inputIsNotExit;
-        boolean noValidNumberWasEntered = true;
         do {
             LOG.debug("Get input from user.");
             System.out.println("Please enter temperature in °C (write 'exit' to end): ");
@@ -101,10 +108,10 @@ public class DemoNumberInputWithLogger {
             if (inputIsNotExit) {
                 LOG.debug("input is not 'exit'. Will try to convert to number.");
                 try {
-                    inputNumber = Float.valueOf(input);
-                    noValidNumberWasEntered = false;
+                    Optional<Float> inputNumber = Optional.ofNullable(Float.valueOf(input));
                     System.out.println("Temperature: " + inputNumber + "°C");
                     LOG.info("Input was converted successfully to a number.");
+                    return inputNumber;
                 }
                 catch (NumberFormatException ex) {
                     System.out.println("Input has to be a number or 'exit'. Example: 24.5");
@@ -114,8 +121,8 @@ public class DemoNumberInputWithLogger {
             else {
                 LOG.warn("Input was 'exit'. Leave loop without a number.");
             }
-        } while (inputIsNotExit && noValidNumberWasEntered);
+        } while (inputIsNotExit);
         LOG.debug("Loop ended.");
-        return !noValidNumberWasEntered;
+        return Optional.ofNullable(null);
     }
 }
