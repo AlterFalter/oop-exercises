@@ -77,6 +77,7 @@ public class Temperature implements Comparable<Temperature> {
         else {
             Temperature otherTemperature = (Temperature) other;
             return otherTemperature.temperatureInCelsius == this.temperatureInCelsius;
+            // return Float.compare(otherTemperature.temperatureInCelsius, this.temperatureInCelsius) == 0;
         }
     }
     
