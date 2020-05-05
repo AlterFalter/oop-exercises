@@ -5,18 +5,19 @@
  */
 package ch.hslu.oop.sw10.exercise2;
 
+import ch.hslu.oop.sw10.exercise1.Temperature;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
  * @author yannk
  */
 public class TemperatureHistory {
-    private Collection<Temperature> temperatures;
+    // final "betoniert" Referenz
+    private final Collection<Temperature> temperatures;
     
     public TemperatureHistory() {
         this.temperatures = new ArrayList<Temperature>();
@@ -34,28 +35,39 @@ public class TemperatureHistory {
         return this.temperatures.size();
     }
     
-    public Collection<Float> getTemperaturesInCelsius() {
-//        Collection<Float> temperaturesInCelsius = new ArrayList<Float>();
-//        this.temperatures.forEach(t -> temperaturesInCelsius.add(t));
-//        return temperaturesInCelsius;
-        return this.temperatures
-            .stream()
-            .map(t -> t.getTemperatureInCelsius())
-            .collect(Collectors.toList());
+    public boolean isEmpty() {
+        return this.temperatures.isEmpty();
     }
     
-    public float getMaxTemperatureInCelsius() {
-        return Collections.max(this.getTemperaturesInCelsius());
+    public float getMaxTemperatureInCelsius() throws Exception {
+        if (this.isEmpty()) {
+            throw new Exception();
+        }
+        else {
+            // already sorts because of compareTo
+            return Collections.max(temperatures).getTemperatureInCelsius();
+        }
     }
     
-    public float getMinTemperatureInCelsius() {
-        return Collections.min(this.getTemperaturesInCelsius());
+    public float getMinTemperatureInCelsius() throws Exception {
+        if (this.isEmpty()) {
+            throw new Exception();
+        }
+        return Collections.min(temperatures).getTemperatureInCelsius();
+        //return Collections.min(this.getTemperaturesInCelsius());
     }
     
-    public float getAverageTemperatureInCelsius() {
-        return (float)this.getTemperaturesInCelsius()
-            .stream()
-            .mapToDouble(t -> t)
-            .average();
+    public float getAverageTemperatureInCelsius() throws Exception {
+        if (this.isEmpty()) {
+            throw new Exception();
+        }
+        
+        float sum = 0;
+        for (Temperature temperature : this.temperatures) {
+            sum += temperature.getTemperatureInCelsius();
+        }
+        float average = sum / this.getCount();
+        
+        return average;
    }
 }
