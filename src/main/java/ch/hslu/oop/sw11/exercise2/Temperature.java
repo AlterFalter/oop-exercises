@@ -51,12 +51,8 @@ public class Temperature extends ImmutableTemperature {
     }
     
     public final void setTemperatureWithKelvin(float newTemperatureInKelvin) {
-        if (TemperatureCalculator.isKelvinValueValid(newTemperatureInKelvin)) {
+        TemperatureCalculator.checkKelvinValue(newTemperatureInKelvin);
             this.temperatureInKelvin = newTemperatureInKelvin;
-        }
-        else {
-            throw new IllegalArgumentException("Temperature value can't be under 0°K.");
-        }
     }
     
     public final void changeTemperatureWithKelvin(float temperatureChangeInKelvin) {

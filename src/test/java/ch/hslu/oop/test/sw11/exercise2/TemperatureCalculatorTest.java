@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  *
@@ -48,7 +49,7 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.celsiusToKelvin(-650.15f);
         });
-        assertEquals("Celsius value should be at least " + TemperatureCalculator.CELSIUS_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Celsius value should be at least " + TemperatureCalculator.CELSIUS_MINIMUM));
     }
     
     @Test
@@ -66,7 +67,7 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.kelvinToCelsius(-1f);
         });
-        assertEquals("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM));
     }
     
     @Test
@@ -94,7 +95,7 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.celsiusToFahrenheit(-300);
         });
-        assertEquals("Celsius value should be at least " + TemperatureCalculator.CELSIUS_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Celsius value should be at least " + TemperatureCalculator.CELSIUS_MINIMUM));
     }
     
     @Test
@@ -122,7 +123,7 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.fahrenheitToCelsius(-783f);
         });
-        assertEquals("Fahrenheit value should be at least " + TemperatureCalculator.FAHRENHEIT_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Fahrenheit value should be at least " + TemperatureCalculator.FAHRENHEIT_MINIMUM));
     }
     
     @Test
@@ -140,7 +141,7 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.kelvinToFahrenheit(-0.005f);
         });
-        assertEquals("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Kelvin value should be at least " + TemperatureCalculator.KELVIN_MINIMUM));
     }
     
     @Test
@@ -168,6 +169,6 @@ public class TemperatureCalculatorTest {
         final IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
             TemperatureCalculator.fahrenheitToKelvin(-742f);
         });
-        assertEquals("Fahrenheit value should be at least " + TemperatureCalculator.FAHRENHEIT_MINIMUM, ex.getMessage());
+        assertTrue(ex.getMessage().contains("Fahrenheit value should be at least " + TemperatureCalculator.FAHRENHEIT_MINIMUM));
     }
 }
