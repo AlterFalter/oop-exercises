@@ -10,7 +10,17 @@ package ch.hslu.oop.sw10.exercise3;
  * @author yannk
  */
 public enum AggregatePhase {
-    SOLID,
-    LIQUID,
-    GAS
+    SOLID("fest"),
+    LIQUID("flüssig"),
+    GAS("gasförmig");
+    
+    private final String germanTranslation;
+    
+    private AggregatePhase(final String germanTranslation) {
+        this.germanTranslation = germanTranslation;
+    }
+    
+    public String getGermanTranslation() {
+        return this.germanTranslation;
+    }
 }
