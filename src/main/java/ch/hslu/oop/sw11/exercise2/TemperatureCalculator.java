@@ -85,6 +85,6 @@ public abstract class TemperatureCalculator {
     }
     
     public final static boolean isFahrenheitValueValid(float temperatureInFahrenheit) {
-        return temperatureInFahrenheit > FAHRENHEIT_MINIMUM;
+        return temperatureInFahrenheit >= FAHRENHEIT_MINIMUM;
     }
 }

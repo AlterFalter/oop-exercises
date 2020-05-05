@@ -51,7 +51,7 @@ public class Temperature extends ImmutableTemperature {
     }
     
     public final void setTemperatureWithKelvin(float newTemperatureInKelvin) {
-        if (newTemperatureInKelvin >= 0) {
+        if (TemperatureCalculator.isKelvinValueValid(newTemperatureInKelvin)) {
             this.temperatureInKelvin = newTemperatureInKelvin;
         }
         else {
@@ -60,7 +60,9 @@ public class Temperature extends ImmutableTemperature {
     }
     
     public final void changeTemperatureWithKelvin(float temperatureChangeInKelvin) {
-        this.temperatureInKelvin += temperatureChangeInKelvin;
+        if (TemperatureCalculator.isKelvinValueValid(this.temperatureInKelvin + temperatureChangeInKelvin)) {
+            this.temperatureInKelvin += temperatureChangeInKelvin;
+        }
     }
     
     public final void setTemperatureWithCelsius(float newTemperatureInCelsius) {
