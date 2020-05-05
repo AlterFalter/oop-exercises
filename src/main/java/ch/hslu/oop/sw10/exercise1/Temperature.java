@@ -13,61 +13,60 @@ import java.util.Objects;
  */
 public final class Temperature implements Comparable<Temperature> {
     private static final float CELSIUS_KELVIN_OFFSET = 273.15f;
-    private float temperatureInCelsius;
+    private float temperatureInKelvin;
     
-    public Temperature() {
-        this.temperatureInCelsius = 0;
+    public Temperature(float temperatureInKelvin) {
+        this.temperatureInKelvin = temperatureInKelvin;
     }
     
-    public Temperature(float temperatureInCelsius) {
-        this.temperatureInCelsius = temperatureInCelsius;
+    public final float getTemperatureInCelsius() {
+        return kelvinToCelsius(this.temperatureInKelvin);
     }
     
-    public float getTemperatureInCelsius() {
-        return this.temperatureInCelsius;
+    public final void setTemperatureWithCelsius(float newTemperatureInCelsius) {
+        this.temperatureInKelvin = celsiusToKelvin(newTemperatureInCelsius);
     }
     
-    public void setTemperatureWithCelsius(float newTemperatureInCelsius) {
-        this.temperatureInCelsius = newTemperatureInCelsius;
+    public final void changeTemperatureWithCelsius(float temperatureChangeInCelsius) {
+        float newTemperatureInCelsius = this.getTemperatureInCelsius() + temperatureChangeInCelsius;
+        this.setTemperatureWithCelsius(newTemperatureInCelsius);
     }
     
-    public void changeTemperatureWithCelsius(float temperatureChangeInCelsius) {
-        this.temperatureInCelsius += temperatureChangeInCelsius;
+    public final float getTemperatureInKelvin() {
+        return this.temperatureInKelvin;
     }
     
-    public float getTemperatureInKelvin() {
-        return celsiusToKelvin(this.temperatureInCelsius);
+    public final void setTemperatureWithKelvin(float newTemperatureInKelvin) {
+        this.temperatureInKelvin = newTemperatureInKelvin;
     }
     
-    public void setTemperatureWithKelvin(float newTemperatureInKelvin) {
-        this.temperatureInCelsius = kelvinToCelsius(newTemperatureInKelvin);
+    public final void changeTemperatureWithKelvin(float temperatureChangeInKelvin) {
+        this.temperatureInKelvin += temperatureChangeInKelvin;
     }
     
-    public void changeTemperatureWithKelvin(float temperatureChangeInKelvin) {
-        float newTemperatureInKelvin = this.getTemperatureInKelvin() + temperatureChangeInKelvin;
-        this.setTemperatureWithKelvin(newTemperatureInKelvin);
+    public final float getTemperatureInFahrenheit() {
+        return kelvinToFahrenheit(this.temperatureInKelvin);
     }
     
-    public float getTemperatureInFahrenheit() {
-        return celsiusToFahrenheit(this.temperatureInCelsius);
+    public final void setTemperatureWithFahrenheit(float newTemperatureInFahrenheit) {
+        this.temperatureInKelvin = fahrenheitToKelvin(newTemperatureInFahrenheit);
     }
     
-    public void setTemperatureWithFahrenheit(float newTemperatureInFahrenheit) {
-        this.temperatureInCelsius = fahrenheitToCelsius(newTemperatureInFahrenheit);
-    }
-    
-    public void changeTemperatureWithFahrenheit(float temperatureChangeInFahrenheit) {
+    public final void changeTemperatureWithFahrenheit(float temperatureChangeInFahrenheit) {
         float newTemperatureInFahrenheit = this.getTemperatureInFahrenheit() + temperatureChangeInFahrenheit;
         this.setTemperatureWithFahrenheit(newTemperatureInFahrenheit);
     }
     
     @Override
-    public String toString() {
-        return "Class: " + Temperature.class.getName() + " | Temperature in °C: " + this.getTemperatureInCelsius();
+    public final String toString() {
+        return "Class: " + Temperature.class.getSimpleName() + 
+               " | Temperature in °C: " + this.getTemperatureInCelsius() +
+               " | in °K: " + this.getTemperatureInKelvin() +
+               " | in °F: " + this.getTemperatureInFahrenheit();
     }
     
     @Override
-    public boolean equals(final Object other) {
+    public final boolean equals(final Object other) {
         if (other == this) {
             return true;
         }
@@ -77,37 +76,38 @@ public final class Temperature implements Comparable<Temperature> {
         }
         else {
             Temperature otherTemperature = (Temperature) other;
-            return otherTemperature.temperatureInCelsius == this.temperatureInCelsius;
+            return otherTemperature.temperatureInKelvin == this.temperatureInKelvin;
+            // return Float.compare(otherTemperature.temperatureInCelsius, this.temperatureInCelsius) == 0;
         }
     }
     
     @Override
-    public int hashCode() {
-        return Objects.hash(this.temperatureInCelsius);
+    public final int hashCode() {
+        return Objects.hash(this.temperatureInKelvin);
     }
 
     @Override
-    public int compareTo(Temperature other) {
-        return Double.compare(this.temperatureInCelsius, other.temperatureInCelsius);
+    public final int compareTo(Temperature other) {
+        return Float.compare(this.temperatureInKelvin, other.temperatureInKelvin);
     }
     
-    public static float celsiusToKelvin(float temperatureInCelsius) {
+    public final static float celsiusToKelvin(float temperatureInCelsius) {
         return temperatureInCelsius + CELSIUS_KELVIN_OFFSET;
     }
     
-    public static float kelvinToCelsius(float temperatureInKelvin) {
+    public final static float kelvinToCelsius(float temperatureInKelvin) {
         return temperatureInKelvin - CELSIUS_KELVIN_OFFSET;
     }
     
-    public static float celsiusToFahrenheit(float temperatureInCelsius) {
+    public final static float celsiusToFahrenheit(float temperatureInCelsius) {
         return temperatureInCelsius * 1.8f + 32f;
     }
     
-    public static float fahrenheitToCelsius(float temperatureInFahrenheit) {
+    public final static float fahrenheitToCelsius(float temperatureInFahrenheit) {
         return (temperatureInFahrenheit - 32f) / 1.8f;
     }
     
-    public static float kelvinToFahrenheit(float temperatureInKelvin) {
+    public final static float kelvinToFahrenheit(float temperatureInKelvin) {
         return temperatureInKelvin * 1.8f - 459.67f;
     }
     
@@ -115,7 +115,7 @@ public final class Temperature implements Comparable<Temperature> {
     /// Umsetzung mit 2 Methodeaufrufen kann sich lohnen bei sehr vielen Einheiten oder sehr wenigen Aufrufen (Testing), 
     /// kann auch Genauigkeitsverlust geben
     /// --> res = FahrenheitToCelsius(1234); return CelsiusToKelvin(res);
-    public static float fahrenheitToKelvin(float temperatureInFahrenheit) {
+    public final static float fahrenheitToKelvin(float temperatureInFahrenheit) {
         return (temperatureInFahrenheit + 459.67f) / 1.8f;
     }
 }
