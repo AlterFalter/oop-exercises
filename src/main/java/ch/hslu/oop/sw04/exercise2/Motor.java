@@ -113,7 +113,7 @@ public class Motor implements Switchable, Runnable {
     
     public void sleep(int ms) {
         try {
-            this.thread.sleep(1000);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
             System.out.println("Couldn't sleep :/");
         }
