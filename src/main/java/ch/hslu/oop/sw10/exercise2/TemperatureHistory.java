@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class TemperatureHistory {
     // final "betoniert" Referenz
-    private final Collection<Temperature> temperatures;
+    protected final Collection<Temperature> temperatures;
     
     public TemperatureHistory() {
         this.temperatures = new ArrayList<Temperature>();
