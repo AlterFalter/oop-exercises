@@ -6,6 +6,8 @@
 package ch.hslu.oop.test.sw11.exercise2;
 
 import ch.hslu.oop.sw11.exercise2.ImmutableTemperature;
+import ch.hslu.oop.sw11.exercise2.TemperatureCalculator;
+
 import nl.jqno.equalsverifier.EqualsVerifier;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Disabled;
@@ -68,9 +70,10 @@ public class ImmutableTemperatureTest {
     
     // disabled because it fails, when printing °F,
     // would show correct values
-    @Test @Disabled
+    @Test
     public void testToString() {
-        ImmutableTemperature temperature = ImmutableTemperature.createFromKelvin(273.15f);
+        System.out.println(TemperatureCalculator.kelvinToFahrenheit(273.15f));
+        ImmutableTemperature temperature = ImmutableTemperature.createFromKelvin(-TemperatureCalculator.CELSIUS_MINIMUM);
         String expectedOutput = "Class: ImmutableTemperature | ImmutableTemperature in °C: 0 | in °K: 273.15 | in °F: 32";
         assertEquals(expectedOutput, temperature.toString());
     }

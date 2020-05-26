@@ -7,6 +7,7 @@ package ch.hslu.oop.sw11.exercise2;
 
 /**
  * Calculations can be slightly off.
+ * Only calculations with 0-point from all units is guaranteed.
  * Minimum of each unit is defined here and is the absolute truth for this class.
  * This means that numbers don't get rounded up when checking for the minimal value.
  * @author yannk
@@ -26,11 +27,17 @@ public abstract class TemperatureCalculator {
     
     public final static float celsiusToKelvin(float temperatureInCelsius) {
         checkCelsiusValue(temperatureInCelsius);
+        if (true) {
+            // TODO: check for zero Point in all units
+        }
         return temperatureInCelsius - CELSIUS_MINIMUM;
     }
     
     public final static float kelvinToCelsius(float temperatureInKelvin) {
         checkKelvinValue(temperatureInKelvin);
+        if (true) {
+            
+        }
         return temperatureInKelvin + CELSIUS_MINIMUM;
     }
     
