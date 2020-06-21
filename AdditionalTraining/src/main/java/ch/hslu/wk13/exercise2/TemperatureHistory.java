@@ -20,9 +20,12 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -129,8 +132,7 @@ public class TemperatureHistory {
     @Override
     public String toString() {
         String text = "TemperatureHistory | Length: " + this.temperatures.size() + " | ";
-        text += String.join(",", text, this.temperatures.stream().map(t -> t.toString()).toString());
-        //text += String.join(this.temperatures.stream().map(t -> t.toString() + ", ").toArray());
+        text += this.temperatures.stream().map(t -> t.toString()).collect(Collectors.joining(", "));
         return text;
     }
 }
