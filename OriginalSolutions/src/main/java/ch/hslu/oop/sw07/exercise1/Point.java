@@ -51,6 +51,8 @@ public class Point {
      * polar coordinates
      */
     public void moveRelative(float degree, float radius) {
+        // Math lib wants radian
+        degree = (float)Math.toRadians(degree);
         int x = (int)Math.round(Math.cos(degree) * radius);
         int y = (int)Math.round(Math.sin(degree) * radius);
         
