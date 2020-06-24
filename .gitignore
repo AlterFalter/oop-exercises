@@ -9,4 +9,7 @@
 /.apt_generated/
 /.apt_generated_tests/
 /bin/
+.classpath
+.project
+.factorypath
 *.class
