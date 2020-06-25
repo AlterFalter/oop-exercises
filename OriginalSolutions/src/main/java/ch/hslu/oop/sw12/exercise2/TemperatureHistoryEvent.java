@@ -11,7 +11,7 @@ import java.util.EventObject;
  *
  * @author yannk
  */
-public class TemperatureHistoryEvent extends EventObject {
+public abstract class TemperatureHistoryEvent extends EventObject {
     // TODO: change to Temperature
     private final float newValue;
     
