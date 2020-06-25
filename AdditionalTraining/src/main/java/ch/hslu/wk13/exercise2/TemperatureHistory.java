@@ -5,7 +5,6 @@
  */
 package ch.hslu.wk13.exercise2;
 
-import ch.hslu.wk12.exercise1.Car;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,11 +18,7 @@ import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
