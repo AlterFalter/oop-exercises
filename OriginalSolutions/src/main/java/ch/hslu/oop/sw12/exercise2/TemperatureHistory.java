@@ -6,7 +6,6 @@
 package ch.hslu.oop.sw12.exercise2;
 
 import ch.hslu.oop.sw10.exercise1.Temperature;
-import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
