@@ -29,7 +29,7 @@ import org.apache.logging.log4j.Logger;
  * @author yannk
  */
 public class TemperatureHistory {
-    private static final Logger LOG = LogManager.getLogger(TemperatureHistory.class);
+    protected static final Logger LOG = LogManager.getLogger(TemperatureHistory.class);
     private List<Temperature> temperatures;
     
     public TemperatureHistory() {
@@ -100,6 +100,22 @@ public class TemperatureHistory {
             LOG.error(ex.getMessage(), ex);
             return false;
         }
+    }
+    
+    public int size() {
+        return this.temperatures.size();
+    }
+    
+    public boolean hasTemperatures() {
+        return this.size() > 0;
+    }
+    
+    public String getStatistics() {
+        String statistics = "";
+        statistics += "Size: " + this.temperatures.size();
+        statistics += " | Max temperature: " + this.getMaxTemperatureInKelvin() + "°K";
+        statistics += " | Average temperature: " + this.getAverageTemperatureInKelvin() + "°K";
+        return statistics;
     }
     
     public static TemperatureHistory load(String path) {
