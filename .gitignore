@@ -13,3 +13,6 @@
 .project
 .factorypath
 *.class
+org.eclipse.*
+surefire-reports/
+target/
