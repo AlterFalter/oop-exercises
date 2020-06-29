@@ -5,6 +5,7 @@
  */
 package ch.hslu.wk07.exercise1;
 
+import java.util.Objects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +13,7 @@ import org.apache.logging.log4j.Logger;
  *
  * @author Student
  */
-public class Point {
+public class Point implements Comparable<Point> {
     private static final Logger LOG = LogManager.getLogger(Point.class);
     
     private int x;
@@ -88,5 +89,18 @@ public class Point {
         int xDelta = (int)Math.round(Math.cos(angle) * radius);
         int yDelta = (int)Math.round(Math.sin(angle) * radius);
         this.moveRelative(xDelta, yDelta);
+    }
+    
+    private float distanceToZeroPoint() {
+        return (float)Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+    
+    public int compareTo(Point other) {
+        return Float.compare(this.distanceToZeroPoint(), other.distanceToZeroPoint());
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.x, this.y);
     }
 }
