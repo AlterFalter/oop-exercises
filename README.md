@@ -9,7 +9,7 @@ All solutions are written with NetBeans in Java 11 (except Wiki).
 
 OriginalSolutions   --> Contains nearly all exercises.<br/>
 AdditionalTraining  --> Contains rewritten/refactored exercises as a training for the MEP.<br/>
-GuiExamples         --> Contains different examples from multiple GUI technologies.<br/>
+GuiExamples         --> Contains different examples from multiple GUI technologies from Java.<br/>
 MEP                 --> Contains the exercises from the MEP. It's sadly not allowed to publish the exercise paper itself.<br/>
 Wiki                --> Contains a wiki in HTML/JS/CSS with search function.<br/>
 
