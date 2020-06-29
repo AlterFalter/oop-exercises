@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Wiki</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="wiki.js"></script>
+    <style>
+        .advantage {
+            color: green;
+        }
+        .disadvantage {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="?">OOP</a></h1>
+    <h2>Search</h2>
+    <input type="text" id="searchTextBox" style="width:400px" onkeyup="searchInWiki('searchTextBox', 'wikiDiv')">
+    <!--<button onclick="searchInWiki('searchTextBox', 'wikiDiv')">Search</button>-->
+    <!--<button onclick="clearSearchBox()">Clear</button>-->
+    <h2>Wiki</h2>
+    <div id="wikiDiv">
+        <div>
+            <h3>Aufgaben</h3>
+            <div>Aufg. 1 Ex. 1 --> Java in Konsole ausführen</div>
+            <div>Aufg. 1 Ex. 2 --> Testprojekt (Lab Classes) in blueJ</div>
+            <div>Aufg. 1 Ex. 3 --> Fahrrad Händler und weitere Dinge aus echter Welt Klassen modellieren</div>
+            <div>Aufg. 1 Ex. 4 --> Kassenzettel modellieren</div>
+        </div>
+        <div>
+            <h3>Logging</h3>
+            <div>Code:</div>
+            <div>private static final Logger LOG = LogManager.getLogger(<b>MyClass</b>.class);</div>
+            <div>// even more information than debug</div>
+            <div>LOG.trace("This is a trace message");</div>
+            <div>// know nearly everything that happened inside application</div>
+            <div>LOG.debug("This is a debug message");</div>
+            <div>// show progression from application</div>
+            <div>LOG.info("This is an info message");</div>
+            <div>// something could lead to an error in the future</div>
+            <div>LOG.warn("This is a warn message");</div>
+            <div>// error occured</div>
+            <div>LOG.error("This is an error message");</div>
+            <div>// severe error occured, program can't progress any further</div>
+            <div>LOG.fatal("This is a fatal message");</div>
+        </div>
+        <div>
+            <h3>Events</h3>
+            <div></div>
+        </div>
+        <div>
+            <h3>Filter</h3>
+            <div>Code:</div>
+            <div>myTemperatures.stream().map(t -> t.getCelsius()).filter(c -> (c >= 20f && c < 25f)).sorted().forEach(c -> LOG.info("{}°C", c));</div>
+            <div>Siehe stream</div>
+        </div>
+        <div>
+            <h3>Has-a (Composition)</h3>
+            <div>has-a (has_a or has a) is a composition relationship where one object (often called the constituted object, or part/constituent/member object) "belongs to" (is part or member of) another object (called the composite type), and behaves according to the rules of ownership. In simple words, has-a relationship in an object is called a member field of an object. Multiple has-a relationships will combine to form a possessive hierarchy.</div>
+            <div>Siehe is-a</div>
+            <div><a href="https://en.wikipedia.org/wiki/Has-a#:~:text=In%20database%20design%2C%20object-oriented,another%20object%20(called%20the%20composite">Has-a (Wikipedia)</a></div>
+        </div>
+        <div>
+            <h3>is-a (subtyping)</h3>
+            <div>This (has-a) is to be contrasted with an is-a (is_a or is a) relationship which constitutes a taxonomic hierarchy (subtyping).</div>
+            <div>Siehe has-a</div>
+            <div><a href="https://en.wikipedia.org/wiki/Has-a#:~:text=In%20database%20design%2C%20object-oriented,another%20object%20(called%20the%20composite">Has-a (Wikipedia)</a></div>
+        </div>
+        <div>
+            <h3>JIT = Just-in-time (-Compiler)</h3>
+            <div>zur Laufzeit den Code in Maschinencode zu übersetzen</div>
+            <div class="advantage">Soll Ausführungsgeschwindigkeit gegenüber einem Interpreter zu steigern</div>
+        </div>
+        <div>
+            <h3>DRY-Prinzip = Don't Repeat Yourself</h3>
+        </div>
+        <div>
+            <h3>String to float</h3>
+            <div>float value = Float.parseFloat(myString);</div>
+        </div>
+        <div>
+            <h3>Initialize list / ArrayList</h3>
+            <div>List&lt;Object&gt; myList = new ArrayList&lt;&gt;();</div>
+        </div>
+        <div>
+            <h3>Console output</h3>
+            <div>System.out.println("");</div>
+            <div>System.out.println();</div>
+        </div>
+        <div>
+            <h3>Console input</h3>
+            <div>BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</div>
+            <div>reader.readLine();</div>
+        </div>
+        <div>
+            <h3>Compare</h3>
+            <div>public class MyClass implements Comparable&lt;MyClass&gt; {</div>
+            <div>public int compareTo(Point other) {</div>
+            <div>&emsp;return Float.compare(this.distanceToZeroPoint(), other.distanceToZeroPoint());</div>
+            <div>}</div>
+            <div></div>
+        </div>
+        <div>
+            <h3>Hash Code</h3>
+            <div>@Override</div>
+            <div>public int hashCode() {</div>
+            <div>&emsp;return Object<b>s</b>.hash(this.x, this.y);</div>
+            <div>}</div>
+        </div>
+        <!-- Testatprüfung 2 HS 2016/17 -->
+        <div>
+            <h3>Array Initialisierung & Zuweisung</h3>
+            <div>Deklarieren und initialisieren Sie einen int-Array für vier Elemente als lokale Variable.</div>
+            <div>Weisen Sie dann dem zweiten Element den Wert 100 zu. (3 Punkte)</div>
+            <div>int[] demo = new int[4];</div>
+            <div>demo[1] = 100;</div>
+        </div>
+        <div>
+            <h3>Wie fragen Sie bei einem Array dessen Grösse ab? (1 Punkt)</h3>
+            <div>demo.length</div>
+            <div>--> arrays use ".length", collections use ".size()"</div>
+        </div>
+        <div>
+            <h3>Array vs Enumeration / List</h3>
+            <div>Sie erhalten die Aufgabe, eine grosse und gleichzeitig sehr variable Anzahl von Temperatur-Objekten zu verwalten.</div>
+            <div>Verwenden Sie dazu einen Array oder eine Collection? Begründen Sie Ihren Entscheid! (3 Punkte)</div>
+            <div>Collection</div>
+            <div>Die Collections sind dynamisch in der Grosse. Collections sind deutlich funktionaler und flexibler.</div>
+            <div>Arrays "nur" für eher kleine, statistisohe Datenmengen mit elementaren Datentypen.</div>
+            <div>(Was machen wenn eine Array mehr Daten erhält als es Platz hat? Neue Array machen und die Werte der alten Array in neue Array mit mehr Platz zuweisen.)</div>
+        </div>
+        <div>
+            <h3>Arrays Aufgabe</h3>
+            <div>Beurteilen Sie die folgenden Aussagen. (3 Punkte)</div>
+            <div>Hinweis: Für jedes falsche Kreuz gibt es einen halben Punkt Abzug! Insgesamt bekommen Sie aber mindestens null Punkte.</div>
+            <div class="advantage">richtig --> Es gibt in Java auch n-Dimensionale Arrays.</div>
+            <div class="advantage">richtig --> Arrays werden bei Methodenparametern als Referenz übergeben.</div>
+            <div class="advantage">richtig --> Arrays sind ein Sprachelement von Java und werden wie Objekte behandelt.</div>
+            <div class="disadvantage">falsch --> Arrays sind dynamische Datenstrukturen.</div>
+            <div class="disadvantage">falsch --> Arrays können nur für elementare (primitive) Datentypen verwendet werden.</div>
+            <div class="disadvantage">falsch --> Arrays können nicht für Rückgabewerte von Methoden verwendet werden.</div>
+        </div>
+        <div>
+            <h3>Aufgabe 2: Enumerationen (10 Punkte)</h3>
+            <div>Wir mochten den Betriebszustand eines einfachen Motors mit den Zustanden ON, OFF und FAILURE als Java-Enumeration darstellen. Die Enumeration soll Motor‘State heissen.</div>
+            <div>a) Schreiben Sie den vollstandigen Java Quellcode (ohne J avaDoc) für diese Klasse! (3 Punkte)</div>
+            <div>public enum MotorState {</div>
+            <div>&emsp;ON, OFF, FAILURE</div>
+            <div>}</div>
+        </div>
+        <div>
+            <h3>Enum mit Attributen</h3>
+            <div>Die Enumeration soll derart erweitert werden, dass zu jedem Enumwert noch ein Zustandscode (als int) hinterlegt werden kann: ON(1), OFF (0) und FAILURE ( -100).</div>
+            <div>Beschreiben Sie in Stichworten die drei Schritte/Erganzungen, die Sie vornehmen, um das zu erreichen.</div>
+            <div>Es ist kein Code zu schreiben. (3 Punkte)</div>
+            <div>1. Attribut vom Typ in erganzen.</div>
+            <div>2. Konstruktor mit int-Parameter.</div>
+            <div>3. getter-Methode für das Attribut.</div>
+        </div>
+        <div>
+            <h3>Enum Attribut Zugriff / zugreifen / abfragen</h3>
+            <div>Zeigen Sie beispielhaft anhand einer einzelnen Programmzeile auf, wie Sie auf den Zustandscode von FAILURE zugreifen Würden (z.B. indem Sie ihn einer Variablen zuweisen). (1 Punkt)</div>
+            <div>int code = MotorState.FAlLURE.getCode();</div>
+        </div>
+        <div>
+            <h3>Enum Vererbung</h3>
+            <div>Beurteilen Sie die folgende Aussage:</div>
+            <div>Enumerationen konnen spezialisiert (vererbt) werden.</div>
+            <div class="disadvantage">falsch</div>
+            <div>sind implizit final</div>
+        </div>
+        <div>
+            <h3>Enum Konstruktor</h3>
+            <div>Beurteilen Sie die folgende Aussage:</div>
+            <div>Enumerationen erstellt man ganz normal durch den Aufruf von new(...)</div>
+            <div class="disadvantage">falsch</div>
+            <div>Kein new, Konstruktor wird wie implizit aufgerufen</div>
+        </div>
+        <div>
+            <h3>Enum = normale Klasse ?</h3>
+            <div>Beurteilen Sie die folgende Aussage</div>
+            <div>Enumerationen werden von Java intern als normale Klassen realisiert.</div>
+            <div class="advantage">richtig</div>
+        </div>
+        <div>
+            <h3>Enum Wert final und statisch?</h3>
+            <div>Beurteilen Sie die folgende Aussage</div>
+            <div>Ein Enumerationswert wird durch eine finale, statische Instanz repräsentiert.</div>
+            <div class="advantage">richtig</div>
+        </div>
+        <div>
+            <h3>Enum Vorteile</h3>
+            <div>Beurteilen Sie die folgende Aussage</div>
+            <div>Der grosste Vorteil von Enumerationen ist ihre Typsicherheit.</div>
+            <div class="advantage">richtig</div>
+        </div>
+        <div>
+            <h3>Enum Vererbung</h3>
+            <div>Beurteilen Sie die folgende Aussage</div>
+            <div>Die einzelnen Enumerationswerte werden als Strings dargestellt.</div>
+            <div class="disadvantage">falsch</div>
+            <div>int</div>
+        </div>
+        <!-- Ende Testatprüfung -->
+        <!-- Source from questions: https://www.tutorialspoint.com/java/java_online_test.htm -->
+        <div>
+            <h3>What is Set Interface?</h3>
+            <div>Set is a collection of element which cannot contain duplicate elements.</div>
+            <div>The Set interface contains only methods inherited from Collection and adds the restriction that duplicate elements are prohibited</div>
+        </div>
+        <div>
+            <h3>What is runtime polymorphism?</h3>
+            <div>Runtime polymorphism is a process in which a call to an overridden method is resolved at runtime rather than at compile-time.</div>
+            <div>In this process, an overridden method is called through the reference variable of a superclass.</div>
+            <div>Runtime polymorphism or dynamic method dispatch is a process in which a call to an overridden method is resolved at runtime rather than at compile-time. In this process, an overridden method is called through the reference variable of a superclass.</div>
+        </div>
+        <div>
+            <h3>What are Wrapper classes?</h3>
+            <div>These are classes that allow primitive types to be accessed as objects.</div>
+            <div>Example: Integer, Character, Double, Boolean etc.</div>
+        </div>
+        <div>
+            <h3>What is the default value of float variable?</h3>
+            <div>0.0f</div>
+            <div>float variable has default value of 0.0f if defined as an instance/static variable.</div>
+        </div>
+        <div>
+            <h3>In which case, a program is expected to recover?</h3>
+            <div>If an exception occurs.</div>
+        </div>
+        <div>
+            <h3>super class</h3>
+            <div>Variables, methods and constructors which are declared private can be accessed only by the members of the super class.</div>
+            <div>Variables, methods and constructors which are declared protected can be accessed by any subclass of the super class.</div>
+            <div>Variables, methods and constructors which are declared public in the superclass can be accessed by any class.</div>
+        </div>
+        <div>
+            <h3>What is the default value of byte variable?</h3>
+            <div>0</div>
+            <div>Byte variable has default value of 0 if defined as an instance/static variable.</div>
+        </div>
+        <div>
+            <h3>What is the default value of Boolean variable?</h3>
+            <div>false</div>
+            <div>boolean variable has default value of false if defined as an instance/static variable.</div>
+        </div>
+        <div>
+            <h3>What is JIT compiler?</h3>
+            <div>JIT improves the runtime performance of computer programs based on bytecode.</div>
+            <div>JIT, Just In-Time Compiler, improves the runtime performance of computer programs based on bytecode.</div>
+        </div>
+        <div>
+            <h3>Composition represents</h3>
+            <div>HAS-A relationship.</div>
+        </div>
+        <div>
+            <h3>Is it necessary that each try block must be followed by a finally block?</h3>
+            <div>False.</div>
+            <div>It is not necessary that each try block must be followed by a finally block. It should be followed by either a catch block or a finally block.</div>
+        </div>
+        <div>
+            <h3>What is the size of double variable?</h3>
+            <div>64 bit</div>
+            <div>The double data type is represented by double-precision 64-bit IEEE 754 floating point.</div>
+        </div>
+        <div>
+            <h3>What is class variable?</h3>
+            <div>class variables are static variables within a class but outside any method.</div>
+            <div>Class variables are variables declared with in a class, outside any method, with the static keyword.</div>
+        </div>
+        <div>
+            <h3>Which arithmetic operations can result in the throwing of an ArithmeticException?</h3>
+            <div>/ und %</div>
+            <div>Integer / and % can result in the throwing of an ArithmeticException.</div>
+        </div>
+        <div>
+            <h3>What is Deserialization?</h3>
+            <div>Deserialization is the process of restoring state of an object from a byte stream.</div>
+        </div>
+        <div>
+            <h3>Which of the following is true about private access modifier?</h3>
+            <div>Variables, methods and constructors which are declared private can be accessed only by the members of the same class.</div>
+            <div>Private access modifier is used to restrict access to variables, methods and constructors to member of same class only.</div>
+        </div>
+        <!-- finished with online test questions -->
+    </div>
+</body>
+</html>
