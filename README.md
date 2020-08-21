@@ -15,7 +15,7 @@ Wiki                --> Contains a wiki in HTML/JS/CSS with search function.<br/
 
 ## Credit
 
-The Java project-template was used in OriginalSolutions and AdditionalTraining. 
+The [Java project-template](https://github.com/rgisler/hslu_maven_template) was used in OriginalSolutions and AdditionalTraining. 
 The project-template was provided by Roland Gisler (Informatik, HSLU, Switzerland), who is also the professor of the OOP module.
 
 ## List of abbreviations
