@@ -15,8 +15,8 @@ Wiki                --> Contains a wiki in HTML/JS/CSS with search function.<br/
 
 ## Credit
 
-he Java project-template was used for OriginalSolutions and AdditionalTraining from Roland Gisler (Informatik, HSLU, Switzerland).
-The exercises where defined by the professors from the OOP module.
+The Java project-template was used in OriginalSolutions and AdditionalTraining. 
+The project-template was provided by Roland Gisler (Informatik, HSLU, Switzerland), who is also the professor of the OOP module.
 
 ## List of abbreviations
 
